@@ -90,7 +90,7 @@
         }
         @keyframes showContent {
             to{
-                transform: translateY(0);
+                transform: translateX(0);
                 filter: blur(0);
                 opacity: 1;
             }
@@ -98,13 +98,13 @@
         .slider .list .item.active p:nth-child(1),
         .slider .list .item.active h2,
         .slider .list .item.active p:nth-child(3){
-            transform: translateY(30px);
+            transform: translateX(-70px);
             filter: blur(20px);
             opacity: 0;
             animation: showContent .5s .7s ease-in-out 1 forwards;
         }
         .slider .list item.active h2{
-            animation-delay: 1s;
+            animation-delay: 3s;
         }
         .slider .list .item.active p:nth-child(3){
             animation-duration: 1.3s;
