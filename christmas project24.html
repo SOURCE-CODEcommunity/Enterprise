@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas project24</title>
+    <style>
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,900&display=swap');
+        body{
+            font-family: Poppins;
+            margin: 0;
+            background: linear-gradient(135deg, rgba(182, 182, 182, 0.1), rgb(255, 179, 179)), url(./_3681a1a6-c30f-4000-b3b4-c955c0f94134.jpeg);
+            color: #eee;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        svg{
+            width: 25px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+        }
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, rgb(255, 166, 0, 0), rgb(255, 0, 0, 0));
+            color: white;
+            z-index: 1000;
+            padding: 10px 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo{
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #c8ffd7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text; /* For Firefox */
+            /* background-color: purple; */
+            filter: blur(1px);
+            opacity: 0.5;
+            backdrop-filter: blur(50px);
+            padding: 5px;
+            border-radius: 5px;
+            animation: gradientAnimation 5s ease forwards;
+        }
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+                filter: blur(0px);
+                opacity: 1;
+            }
+        }
+        .center{
+            width: 80vw;
+            height: 80vh;
+            backdrop-filter: blur(15px);
+            border-radius: 10px;
+        }
+        .center .tab{
+            width: 100%;
+            height: fit-content;
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 7px;
+            padding-inline: 7vw;
+        }
+        .center .tab ul{
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            transform: rotateX(90deg);
+            animation: rotateObjy 1s ease-in-out 1 forwards;
+        }
+        @keyframes rotateObjy {
+            to{
+                transform: rotateX(0deg);
+            }
+        }
+        .center .tab ul .tabs{
+            padding: 3px;
+            background-color: rgb(38, 38, 38, .1);
+            border-radius: 5px;
+            font-size: 14px;
+            transition: .5s;
+            cursor: pointer;
+        }
+        .center .tab ul .tabs:hover{
+            background-color: rgba(54, 39, 39, 0.3);
+        }
+        .center .tab ul .tabs.active{
+            padding-inline: 7px;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: rgb(0, 0, 0);
+        }
+        .center .tab ul .tabs.active:hover{
+            background-color: rgba(255, 221, 221, 0.3);   
+        }
+        .center .page{
+            width: 100%;
+            height: 92.4%;
+            border-radius: 3px;
+            /* background-color: rgb(0, 0, 0, .1); */
+        }
+        .center .display{
+            position: absolute;
+            right: .1%;
+            width: 100%;
+            height: 92.4%;
+            overflow: scroll;
+            border-radius: 3px;
+            padding: 14px;
+            padding-inline: 28px;
+            background-color: rgb(0, 0, 0, .1);
+            font-size: 15px;
+            display: none;
+            /* columns: 300px; */
+            transform: rotateY(90deg);
+            animation: rotateObjy 1s ease-in-out 1 forwards;
+        }
+        .center .display .images{
+            width: 100%;
+            height: 100%;
+            overflow: scroll;
+            border-radius: 3px;
+            /* background-color: rgb(0, 0, 0, .1); */
+            columns: 300px;
+            transform: rotateY(90deg);
+            animation: rotateObjy 1s ease-in-out 1 forwards;
+        }
+        @keyframes rotateObjy {
+            to{
+                transform: rotateY(0deg);
+            }
+        }
+        .center .display::-webkit-scrollbar{
+            width: 0px;
+        }
+        .center .display .images::-webkit-scrollbar{
+            width: 0px;
+        }
+        .center .display img{
+            width: 100%;
+            border-radius: 10px;
+        }
+        .center .display.active{
+            display: block;
+        }
+        .character{
+            padding: 30px 17px;
+        }
+    </style>
+</head>
+<body>
+        <!-- header -->
+        <header>
+            <nav class="navbar">
+                <div class="navbar-container">
+                    <p class="logo">Christmas project24</p>
+                </div>
+            </nav>
+        </header>
+
+        <div class="center">
+            <div class="tab">
+                <ul>
+                    <li class="tabs active">About</li>
+                    <li class="tabs">Characters</li>
+                    <li class="tabs">Concept Art</li>
+                </ul>
+            </div>
+            <div class="page">
+                <div class="display active">
+                    <p><i>an inspirational christmas story about a boy named john who is selfish and want everything to himself but later learns the importance of christmas. The main focus of the story is to let the us know the importance of sharing and the christmas cheer.</i>
+                    <br><br>
+                       <h3>Act 1: John’s Selfish Wish</h3>
+                       Once upon a snowy Christmas Eve, in the cozy town of Evergreen Hollow, lived a boy named John. John was known for his unruly mop of hair and a heart as cold as the winter wind. He had one wish—to receive the grandest Christmas present of all. Not just any gift, mind you, but something so magnificent that it would outshine the North Star itself. <br>
+
+                       John’s list grew longer each day: a shiny bicycle, a mountain of toys, and even a pet dragon (yes, he was quite imaginative). His greed knew no bounds. He’d snatch cookies from the neighbor’s windowsill and hoard candy canes like a dragon guarding its treasure, neighbours make a lot of complains about him to his parent and his parent hopes the miracle of the season changes him. <br><br>
+
+                       <h3>Act 2: The Mysterious Visitor</h3>
+                       One frosty night, as John lay in bed, dreaming of his extravagant Christmas loot, a soft knock echoed through his room. Startled, he sat up. The door creaked open, revealing an old man with twinkling eyes and a snow-white beard—the kind of beard that whispered secrets. <br>
+                       
+                       “John,” the old man said, “I am Nicholas, the Keeper of Christmas Wishes. Tonight, I grant you one wish.” <br>
+                       
+                       John’s eyes widened. His heart raced. This was it—the moment he’d been waiting for. “I want everything!” he blurted out. “All the toys, all the treats, and even that pet dragon!” <br>
+                       
+                       Nicholas raised an eyebrow. “Very well,” he said. “But remember, wishes have consequences.” <br><br>
+                       
+                       <h3>Act 3: The Empty Room</h3>
+                       Christmas morning arrived, and John rushed downstairs, expecting a room overflowing with gifts. But to his astonishment, the tree stood bare, and the fireplace held no stockings. His selfish wish had come true—the room was empty. <br>
+                       
+                       Confused and disappointed, John sat amidst the silence. Outside, snowflakes danced, and carolers sang. He felt a pang of loneliness, deeper than any toy could fill. <br><br>
+                       
+                       <h3>Act 4: The Lesson Unwrapped</h3>
+                       As the day wore on, John wandered the snow-covered streets. He saw families sharing laughter, friends exchanging gifts, and strangers helping one another. The warmth of their gestures thawed something within him. <br>
+                       
+                       In the town square, Nicholas appeared again. “John,” he said, “your wish revealed the true magic of Christmas. It’s not about what you receive; it’s about what you give.” <br>
+                       
+                       John’s eyes filled with tears. “But I have nothing to give,” he whispered. <br>
+                       
+                       Nicholas smiled. “Ah, my boy, you do.” He pointed to a nearby shelter where people huddled for warmth. “Share your warmth, your kindness, and your heart. That’s the greatest gift.” <br><br>
+                       
+                       <h3>Act 5: A New Wish</h3>
+                       John spent the rest of Christmas day volunteering at the shelter. He served soup, sang carols, and listened to stories from those who had little. And in that humble room, surrounded by people who shared what little they had, John felt richer than ever before. <br>
+                       
+                       That night, he made a new wish—to be a giver, not a taker. And as the snow fell gently outside, John understood the true meaning of Christmas: love, compassion, and the joy of sharing. <br><br>
+
+                        <i>The story takes place in the England village of Evergreen Hollow, where john lives with is parent "Mr & Mrs Thompson" at the cottage located at the edge of Evergreen Hollow, and the year is <b>1950</b></i><br><br>
+
+                        <h3>Evergreen Hollow</h3>
+                        A village filled with joy and happiness, cobbled streets wind through the heart of the village. Gas lamps cast a warm glow, illuminating the way for bundled-up townsfolk, In the village square, a towering Christmas tree stands sentinel. Its branches cradle twinkling lights, silver baubles, and memories of countless winters. Children gather, their laughter echoing off the surrounding buildings. The scent of roasted chestnuts mingles with pine, and carolers sing ancient melodies.
+                    </p>
+                </div>
+                <div class="display">
+                    <p class="character">John <br>
+                        <i>The main character of the story</i>
+                    </p>
+                    <p class="character">Mr Thompson <br>
+                    <i>John’s father who carves wooden ornaments for the Christmas tree - a tradition passed down through generations.</i></p>
+                    <p class="character">Mrs Thompson <br>
+                    <i>John’s mother who is fund of baking gingerbread cookies that smell like childhood memories</i></p>
+                    <p class="character">Old man Nicholas <br>
+                        <i>The Keeper of Christmas Wishes</i></p>
+                </div>
+                <div class="display">
+                    <div class="images">
+
+                        <img src="./character design - john.png" alt="">
+                        <img src="./_3681a1a6-c30f-4000-b3b4-c955c0f94134.jpeg" alt="">
+                        <img src="./_3871ba39-8907-4d15-b624-7bd6997540c8.jpeg" alt="">
+                        <img src="./_83b4539e-2758-4d86-985f-9d40cba2a754.jpeg" alt="">
+                        <img src="./_8fbc271c-98ee-434a-bb52-46e932f6be2e.jpeg" alt="">
+                        <img src="./_e41d3f18-6f5f-4d35-9cf3-fc2b56f4d71a.jpeg" alt="">
+                        <img src="./_e4c13e6e-a9da-4d01-b793-5cdfd5b8b4e3.jpeg" alt="">
+                        <img src="./_f83fdf02-4590-4d83-8f88-4153aa605d18.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            let tabs = document.querySelectorAll(".center .tabs");
+            let display = document.querySelectorAll(".center .page .display");
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener("click", () => {
+                    let tabIndex = index;
+                    let tabActiveold = document.querySelector(".center .tabs.active");
+                    let displayActiveold = document.querySelector(".display.active");
+                    
+                    tabActiveold.classList.remove("active");
+                    displayActiveold.classList.remove("active");
+
+                    tab.classList.add("active");
+                    display[tabIndex].classList.add("active");
+                })
+            })
+
+            
+        </script>
+</body>
+</html>
