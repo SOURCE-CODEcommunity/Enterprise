@@ -171,6 +171,23 @@
         .character{
             padding: 30px 17px;
         }
+        .countdown{
+            position: absolute;
+            bottom: 0%;
+            right: 0%;
+            z-index: 100;
+            background-color: rgba(85, 85, 85, 0.3);
+            border-radius: 10px;
+            padding: 5px;
+            width: 300px;
+            transform: translateY(100%);
+            animation: moveUp .9s ease-in-out 1 forwards;
+        }
+        @keyframes moveUp {
+            to{
+                transform: translateY(0%);
+            }
+        }
     </style>
 </head>
 <body>
@@ -260,6 +277,10 @@
                 </div>
             </div>
         </div>
+        <div class="countdown">
+            <h1 id="countdown">0d 00h 00m 00s</h1>
+            <p id="description">Deadline...</p>
+         </div>
         <script>
             let tabs = document.querySelectorAll(".center .tabs");
             let display = document.querySelectorAll(".center .page .display");
@@ -278,6 +299,46 @@
                 })
             })
 
+
+//---------------------------------------
+
+        function countdownTo(targetTime) {
+            // Get the target time in milliseconds
+            const targetDate = new Date(targetTime).getTime();
+
+            // Update the countdown every second
+            const interval = setInterval(function() {
+                // Get current time
+                const now = new Date().getTime();
+
+                // Find the difference between now and the target time
+                const timeLeft = targetDate - now;
+
+                // Calculate days, hours, minutes, and seconds
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                // Display the result
+                document.getElementById("countdown").innerHTML = 
+                    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+                // If the countdown is finished, stop the timer
+                if (timeLeft < 0) {
+                    clearInterval(interval);
+                    document.getElementById("countdown").innerHTML = "Published";
+                    document.getElementById("description").innerHTML = " ";
+                }
+            }, 1000);
+        }
+
+
+//----------------------------------
+
+        // Set the target time you want to count down to (in this format: "YYYY-MM-DD HH:MM:SS")
+        const targetTime = "2024-12-20 23:59:59";
+        countdownTo(targetTime);
             
         </script>
 </body>
